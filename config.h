@@ -14,8 +14,10 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#f7a41d";
-
-
+static const char col_black[]       = "#000000";
+static const char col_red[]         = "#ff0000";
+static const char col_yellow[]      = "#ffff00";
+static const char col_white[]       = "#ffffff";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -27,6 +29,8 @@ static const char *colors[][3]      = {
 	[SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  },  // Tagbar left unselected
 	[SchemeInfoSel]  = { col_gray4, col_gray2,  "#000000"  },    // Infobar middle selected
 	[SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  },  // Infobar middle unselected
+	[SchemeWarn] =	 { col_black, col_yellow, col_red },
+	[SchemeUrgent]=	 { col_white, col_red,    col_red },
 };
 
 /* tagging */
