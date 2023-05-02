@@ -75,8 +75,11 @@ enum {
     SchemeTagsNorm,
     SchemeInfoSel,
     SchemeInfoNorm,
-    SchemeWarn,
-    SchemeUrgent,
+    Zig1,
+    Zig2,
+    Zig3,
+    Zig4,
+    Zig5,
 };
 
 enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
@@ -737,13 +740,13 @@ drawbar(Monitor *m)
 	/* draw status first so it can be overdrawn by tags later */
 	if (m == selmon) { /* status is only drawn on selected monitor */
 		drw_setscheme(drw, scheme[SchemeStatus]);
-		tw = TEXTW(stext) - lrpad + 2; /* 2px right padding */
+		tw = TEXTW(stext) + statusrpad;
 		while (1) {
 			if ((unsigned int)*ts > LENGTH(colors)) { ts++; continue ; }
 			ctmp = *ts;
 			*ts = '\0';
-			drw_text(drw, m->ww - tw + tx, 0, tw - tx, bh, 0, tp, 0);
-			tx += TEXTW(tp) -lrpad;
+            drw_text(drw, m->ww - tw + tx, 0, tw - tx, bh, 0, tp, 0);
+			tx += TEXTW(tp) - lrpad;
 			if (ctmp == '\0') { break; }
 			drw_setscheme(drw, scheme[(unsigned int)(ctmp-1)]);
 			*ts = ctmp;
